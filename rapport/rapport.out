@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Programme s\351quentiel}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Temps d'ex\351cution}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Premiers mots}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Programme distribu\351}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Architecture MapReduce}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Architecture simple}{section.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.2.1}{D\351tail des diff\351rentes phases}{subsection.3.2}% 8
+\BOOKMARK [3][-]{subsubsection.3.2.2}{R\351sultats}{subsection.3.2}% 9
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Limites}{subsection.3.2}% 10
+\BOOKMARK [2][-]{subsection.3.3}{Architecture optimis\351e}{section.3}% 11
+\BOOKMARK [3][-]{subsubsection.3.3.1}{D\351tail des modifications apport\351es}{subsection.3.3}% 12
+\BOOKMARK [3][-]{subsubsection.3.3.2}{R\351sultats}{subsection.3.3}% 13
+\BOOKMARK [3][-]{subsubsection.3.3.3}{Limites}{subsection.3.3}% 14
+\BOOKMARK [2][-]{subsection.3.4}{Architecture robuste}{section.3}% 15
+\BOOKMARK [3][-]{subsubsection.3.4.1}{D\351tails des modifications apport\351es}{subsection.3.4}% 16
+\BOOKMARK [1][-]{section.4}{Utilisation du programme}{}% 17
