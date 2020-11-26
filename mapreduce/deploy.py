@@ -5,6 +5,7 @@ import subprocess
 from itertools import cycle
 from config import LOGIN, Color
 from pathlib import Path
+import sys
 
 def upload_slave(machine_name: str) -> None:
     """ 
@@ -42,7 +43,7 @@ def upload_data(machine_name: str, data_path: Path) -> None:
         print(f"Déploiement de {data_path.split('/')[-1]} sur {machine_name}: {Color.RED}FAIL{Color.END}")
 
 
-def upload_data_on_cluster(data_folder_path: Path):
+def upload_data_on_cluster(data_folder_path: Path, edit_used_machines: bool=True) -> None:
     """ Appelle la fonction "upload_data" de manière parallèle sur tout le cluster """
     files = [data_folder_path.joinpath(name) for name in os.listdir(data_folder_path)]
     with open('machines.txt', 'r') as f:
@@ -50,9 +51,15 @@ def upload_data_on_cluster(data_folder_path: Path):
     # Si le nombre de split est plus petit que le nombre de machine on n'utilise pas toutes les machines
     names = names[:len(files)] if len(files) < len(names) else names
     # On note les machines utilisées
-    with open("used_machines.txt", "w") as f:
-        for machine in names:
-            f.write(machine + "\n")
+    if edit_used_machines:
+        with open("used_machines.txt", "w") as f:
+            for machine in names:
+                f.write(machine + "\n")
+    else:
+        # Les machines utilisées sont celles du fichier used_machines -> cas de gestion de panne
+        with open("used_machines.txt", "r") as f:
+            names = [name.rstrip() for name in f.readlines()]
+    # Lancement de la copie
     with Pool(os.cpu_count()) as pool:
         # Si il y a plus de fichiers que de machines on cycle sur les machines
         pool.starmap(upload_data, list(zip(cycle(names), files)))
@@ -60,7 +67,15 @@ def upload_data_on_cluster(data_folder_path: Path):
         pool.join()
 
 
-if __name__ == "__main__":
+def main(edit_used_machines: bool=True) -> None:
+    """ Fonction permettant d'orhestrer tout le déploiement """
     os.chdir(f"/tmp/{LOGIN}/")
-    upload_data_on_cluster(Path().cwd().joinpath('split'))
+    upload_data_on_cluster(Path().cwd().joinpath('split'), edit_used_machines)
     upload_slave_on_cluster()
+
+
+if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        main()
+    else:
+        main(bool(int(sys.argv[1])))

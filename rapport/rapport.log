@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.6)  25 NOV 2020 17:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.6)  26 NOV 2020 12:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -412,82 +412,87 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+Overfull \hbox (48.71172pt too wide) in paragraph at lines 32--33
+[]\OT1/cmr/m/n/10 Le code com-ment^^Se et do-cu-ment^^Se est ac-ces-sible via mon Gi-tHub []$\OT1/cmtt/m/n/10 https : / / github . com / fapont / CustomMapReduce$[]\OT1/cmr/m/n/10 ].
+ []
+
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<img/archi.png, id=85, 1011.78pt x 469.755pt>
+<img/archi.png, id=87, 1011.78pt x 469.755pt>
 File: img/archi.png Graphic file (type png)
 <use img/archi.png>
-Package pdftex.def Info: img/archi.png  used on input line 83.
+Package pdftex.def Info: img/archi.png  used on input line 85.
 (pdftex.def)             Requested size: 404.70483pt x 187.89867pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--94
+Underfull \hbox (badness 10000) in paragraph at lines 92--96
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--106
+Underfull \hbox (badness 10000) in paragraph at lines 103--108
 
  []
 
 [2 </home/fabrice/Cours/système_répartis/projet/rapport/img/archi.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 110--113
+Underfull \hbox (badness 10000) in paragraph at lines 112--115
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--119
+Underfull \hbox (badness 10000) in paragraph at lines 118--121
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
+Underfull \hbox (badness 10000) in paragraph at lines 124--125
 
  []
 
 [3]
-Overfull \hbox (5.45618pt too wide) in paragraph at lines 175--178
+Overfull \hbox (5.45618pt too wide) in paragraph at lines 177--180
 []\OT1/cmr/m/n/10 Cette mo-di-fi-ca-tion in-duit plu-sieurs nou-veaut^^Ses dans notre code. Nous avons ajout^^Se un fi-chier \OT1/cmtt/m/n/10 master.txt
  []
 
 [4]
-Overfull \hbox (1.49605pt too wide) in paragraph at lines 187--195
+Overfull \hbox (1.49605pt too wide) in paragraph at lines 189--197
  [] 
  []
 
-<img/graph.png, id=108, 829.0975pt x 433.62pt>
+<img/graph.png, id=109, 829.0975pt x 433.62pt>
 File: img/graph.png Graphic file (type png)
 <use img/graph.png>
-Package pdftex.def Info: img/graph.png  used on input line 208.
+Package pdftex.def Info: img/graph.png  used on input line 210.
 (pdftex.def)             Requested size: 414.54774pt x 216.80946pt.
 [5] [6 </home/fabrice/Cours/système_répartis/projet/rapport/img/graph.png>]
-<img/update.png, id=120, 363.3575pt x 363.3575pt>
+<img/update.png, id=121, 363.3575pt x 363.3575pt>
 File: img/update.png Graphic file (type png)
 <use img/update.png>
-Package pdftex.def Info: img/update.png  used on input line 253.
+Package pdftex.def Info: img/update.png  used on input line 255.
 (pdftex.def)             Requested size: 181.6783pt x 181.6783pt.
-<img/load.png, id=121, 577.15625pt x 89.33376pt>
+<img/load.png, id=122, 577.15625pt x 89.33376pt>
 File: img/load.png Graphic file (type png)
 <use img/load.png>
-Package pdftex.def Info: img/load.png  used on input line 257.
+Package pdftex.def Info: img/load.png  used on input line 259.
 (pdftex.def)             Requested size: 288.57741pt x 44.66676pt.
-<img/mapreduce.png, id=122, 408.52625pt x 466.74374pt>
+<img/mapreduce.png, id=123, 410.53375pt x 469.755pt>
 File: img/mapreduce.png Graphic file (type png)
 <use img/mapreduce.png>
-Package pdftex.def Info: img/mapreduce.png  used on input line 261.
-(pdftex.def)             Requested size: 204.26262pt x 233.37129pt.
+Package pdftex.def Info: img/mapreduce.png  used on input line 263.
+(pdftex.def)             Requested size: 205.26637pt x 234.87692pt.
  [7 </home/fabrice/Cours/système_répartis/projet/rapport/img/update.png> </home/fabrice/Cours/système_répartis/projet/rapport/img/load.png>]
-<img/clean.png, id=132, 378.41376pt x 304.13625pt>
+<img/clean.png, id=133, 378.41376pt x 304.13625pt>
 File: img/clean.png Graphic file (type png)
 <use img/clean.png>
-Package pdftex.def Info: img/clean.png  used on input line 265.
+Package pdftex.def Info: img/clean.png  used on input line 267.
 (pdftex.def)             Requested size: 189.2064pt x 152.06775pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 270.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 272.
  [8 </home/fabrice/Cours/système_répartis/projet/rapport/img/mapreduce.png> </home/fabrice/Cours/système_répartis/projet/rapport/img/clean.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 270.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 272.
  (/home/fabrice/Cours/système_répartis/projet/rapport/rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 270.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 270.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 272.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 272.
 Package rerunfilecheck Info: File `rapport.out' has not changed.
 (rerunfilecheck)             Checksum: 403947ECAF825E6ED8C939C689817580;1209.
  ) 
@@ -500,10 +505,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  34i,11n,37p,1250b,525s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on /home/fabrice/Cours/système_répartis/projet/rapport/rapport.pdf (8 pages, 281205 bytes).
+Output written on /home/fabrice/Cours/système_répartis/projet/rapport/rapport.pdf (8 pages, 282619 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 151 compressed objects within 2 object streams
+ 186 PDF objects out of 1000 (max. 8388607)
+ 152 compressed objects within 2 object streams
  34 named destinations out of 1000 (max. 500000)
  167 words of extra memory for PDF output out of 10000 (max. 10000000)
 

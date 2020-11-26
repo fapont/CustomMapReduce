@@ -29,6 +29,8 @@
 \begin{document}
 \maketitle
 
+Le code commenté et documenté est accessible via mon GitHub \url{https://github.com/fapont/CustomMapReduce}]. Veuillez lire le fichier \texttt{README.md} pour découvrir le contenu de l'archive.
+
 \section{Introduction}
 Nous souhaitons tester l'efficacité d'une solution de calculs répartis. Pour cela nous allons réaliser notre propre système utilisant la puissance des machines du campus de
 Télécom Paris. Nous avons réalisé les différents programmes en \textbf{Python} afin de comparer la rapidité d'exécution d'un programme permettant de \textbf{compter les occurences de mots} d'un fichier
@@ -230,8 +232,8 @@ Nous avons modifié notre implémentation afin de résoudre les deux problèmes 
     \item \textbf{Nombre de machine \& Nombre de splits}: pour régler ce problème nous avons créé un nouveau fichier \texttt{used\_machines.txt} qui se partage sur toutes les machines utilisées dans le cluster. 
     Ce fichier contient la liste des machines qui sont actuellement en train de calculer (les machines sur lesquelles un split a été déployé). Cette nouvelle liste nous permet de gérer tout type de fichier quelle que soit la taille du fichier d'entrée.
     \item \textbf{Gestion des pannes}: afin de conserver une trace de toutes les erreurs qui sont arrivées pendant l'exécution, le master rempli des fichiers \texttt{map.error}, \texttt{shuffle.error}, \texttt{reduce.error} lors des appels parallèles en y inscrivant le nom de la machine qui a fait défaut. 
-    Ces écritures parallèles sur un même fichier s'effectuent grâce l'utilisation d'un blocage sur le fichier lorsque qu'un processus l'utilise. Avant chaque finalisation d'étape, notre programme vérifie le contenu de ces fichiers et réexécutent les phases
-    sur une nouvelle machine en cas d'erreur sur une des machines.
+    Ces écritures parallèles sur un même fichier s'effectuent grâce l'utilisation d'un blocage sur le fichier lorsque qu'un processus l'utilise. Avant chaque finalisation d'étape, notre programme vérifie le contenu de ces fichiers et si une machine a fait défaut sur une des tâches, il la supprime du fichier
+    \texttt{used\_machines.txt} et relance entièrement le job MapReduce (il faudrait pouvoir relancer le processus à partir d'une étape en particulier si possible). Dans ce cas, nous ne changons pas le nombre de splits mais une machine récupère la charge de travail de la machine down.
 \end{itemize}
 
 Afin de finaliser notre programme pour le rendre utilisable facilement nous avons opéré d'autres modifications:
@@ -264,7 +266,7 @@ Afin d'utiliser correctement notre programme, l'utilisateur a besoin de \textbf{
     \begin{center}
         \includegraphics[scale=0.5]{img/clean.png}
     \end{center}
-    
+     
 \end{itemize}
 
 \end{document}

@@ -54,7 +54,21 @@ def run_map_on_cluster():
         # Attente de la fin d'exécution
         pool.close()
         pool.join()
-    print("MAP FINISHED")
+    # Check du fichier error et relancement du programme en cas de panne
+    if Path.cwd().joinpath("map.error").exists():
+        # On supprime toutes les machines qui ont planté du fichier "used_machines"
+        with open('map.error', 'r') as err:
+            dead_machines = [name.rstrip() for name in err.readlines()]
+        new_machines = [machine for machine in names if machine not in dead_machines]
+        # Réécriture du fichier "used_machines"
+        with open("used_machines.txt", "w") as f:
+            for machine in new_machines:
+                f.write(machine + "\n")
+        # Relancement du job mapreduce depuis le début en enelevant la machine défectueuse
+        print(f"{Color.RED}ERROR du MAP{Color.END}: relancement du job sur un cluster de {len(new_machines)} machines")
+        main(False)
+    else:
+        print("MAP FINISHED")
 
 
 def run_shuffle(machine_name: str) -> None:
@@ -82,7 +96,21 @@ def run_shuffle_on_cluster():
         # Attente de la fin d'exécution
         pool.close()
         pool.join()
-    print("SHUFFLE FINISHED")
+    # Check du fichier error et relancement du programme en cas de panne
+    if Path.cwd().joinpath("shuffle.error").exists():
+        # On supprime toutes les machines qui ont planté du fichier "used_machines"
+        with open('shuffle.error', 'r') as err:
+            dead_machines = [name.rstrip() for name in err.readlines()]
+        new_machines = [machine for machine in names if machine not in dead_machines]
+        # Réécriture du fichier "used_machines"
+        with open("used_machines.txt", "w") as f:
+            for machine in new_machines:
+                f.write(machine + "\n")
+        # Relancement du job mapreduce depuis le début en enelevant la machine défectueuse
+        print(f"{Color.RED}ERROR du SHUFFLE{Color.END}: relancement du job sur un cluster de {len(new_machines)} machines")
+        main(False)
+    else:
+        print("SUFFLE FINISHED")
 
 
 def run_reduce(machine_name: str) -> None:
@@ -110,7 +138,21 @@ def run_reduce_on_cluster():
         # Attente de la fin d'exécution
         pool.close()
         pool.join()
-    print("REDUCE FINISHED")
+    # Check du fichier error et relancement du programme en cas de panne
+    if Path.cwd().joinpath("reduce.error").exists():
+        # On supprime toutes les machines qui ont planté du fichier "used_machines"
+        with open('reduce.error', 'r') as err:
+            dead_machines = [name.rstrip() for name in err.readlines()]
+        new_machines = [machine for machine in names if machine not in dead_machines]
+        # Réécriture du fichier "used_machines"
+        with open("used_machines.txt", "w") as f:
+            for machine in new_machines:
+                f.write(machine + "\n")
+        # Relancement du job mapreduce depuis le début en enelevant la machine défectueuse
+        print(f"{Color.RED}ERROR du REDUCE{Color.END}: relancement du job sur un cluster de {len(new_machines)} machines")
+        main(False)
+    else:
+        print("REDUCE FINISHED")
 
 
 @timeit
@@ -128,9 +170,13 @@ def split_data(path: Path, n: int) -> None:
 
 
 @timeit
-def deploy() -> None:
+def deploy(update_used_machines: bool=True) -> None:
     """ Fonction permettant de lancer le déploiement des slaves et splits"""
-    subprocess.run('python3 deploy.py'.split())
+    if update_used_machines:
+        subprocess.run('python3 deploy.py'.split())
+    else:
+        subprocess.run('python3 deploy.py 0'.split())
+
 
 
 def sort_output_on_cluster(n: int=10):
@@ -201,7 +247,7 @@ def display_result(n: int):
     shutil.rmtree("temp")
 
 @timeit
-def main():
+def main(update_used_machines: bool=True):
     # On split les données en n_machine
     os.chdir(f"/tmp/{LOGIN}/")
     try:
@@ -211,7 +257,7 @@ def main():
         raise
     n_machine = int(r.stdout.decode().split()[0])
     split_data(Path.cwd().joinpath("data/input.txt"), n_machine)
-    deploy() # Créé le fichier "used_machines"
+    deploy(update_used_machines) # Créé le fichier "used_machines" ou utilise un ancien
     run_map_on_cluster()
     run_shuffle_on_cluster()
     run_reduce_on_cluster()
